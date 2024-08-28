@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>UrlShortener</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <!-- Load CSS files -->
+  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "inter-font", "data-turbo-track": "reload" %>
+
+  <!-- Load JavaScript files -->
+  <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+</head>
+
+<body>
+  <main class="container mx-auto mt-28 px-5 flex">
+    <%= yield %>
+  </main>
+</body>
+
+</html>

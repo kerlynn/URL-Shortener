@@ -1,0 +1,58 @@
+<a href="<%= reports_usage_path %>" target="_blank"
+  class="absolute top-4 right-4 px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none">
+  <i class="fas fa-file-alt"></i> Report
+</a>
+<div class="flex flex-col items-center justify-center w-full max-w-lg mx-auto p-8 bg-white rounded-lg shadow-md">
+  <div class="text-center">
+    <h1 class="text-4xl font-bold text-gray-900">URL Shortener</h1>
+    <p class="mt-4 text-gray-600">Shorten your URLs with ease.</p>
+  </div>
+
+  <div class="flex flex-col items-center justify-center w-full max-w-md mx-auto mt-8 p-8 bg-white rounded-lg shadow-lg">
+    <%= form_with model: @url, url: urls_path, local: true, class: "w-full space-y-4" do |form| %>
+
+    <div class="text-left w-full">
+      <label class="block text-gray-600 font-bold mb-2" for="long-url">
+        <i class="fas fa-link"></i> Your Long URL
+      </label>
+      <%= form.text_field :target_url, id: "long-url", class: "w-full px-4 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400", placeholder: "Enter your long URL here...", readonly: @url.persisted?  %>
+    </div>
+
+    <% if @url.persisted? %>
+    <div class="text-left w-full">
+      <label class="block text-gray-600 font-bold mb-2" for="short-url">
+        <i class="fas fa-pencil-alt"></i> Short URL
+      </label>
+      <input id="short-url" type="text" value="<%= @full_url %>" readonly
+        class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" />
+    </div>
+    <% end %>
+
+    <div class="flex space-x-2 mb-4">
+      <% unless @url.short_url %>
+      <%= form.submit "Shorten URL", class: "px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600 focus:outline-none" %>
+      <% end %>
+      <% if @url.persisted? %>
+      <button type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none"
+        onclick="copyToClipboard('#short-url')">
+        <i class="fas fa-copy"></i> Copy
+      </button>
+      <% end %>
+    </div>
+
+    <div class="flex space-x-2">
+      <% if @url.persisted? %>
+      <%= link_to "Shorten another", root_path, class: "px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none" %>
+      <% end %></div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  function copyToClipboard(element) {
+    var copyText = document.querySelector(element);
+    copyText.select();
+    document.execCommand("copy");
+    alert("Copied the URL: " + copyText.value);
+  }
+</script>
