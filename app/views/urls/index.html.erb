@@ -23,7 +23,7 @@
       <label class="block text-gray-600 font-bold mb-2" for="short-url">
         <i class="fas fa-pencil-alt"></i> Short URL
       </label>
-      <input id="short-url" type="text" value="<%= @full_url %>" readonly
+      <input id="short-url" type="text" value="<%= full_short_url(@url) %>" readonly
         class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" />
     </div>
 
@@ -56,19 +56,19 @@
           </button>
           <div
             class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10 hidden group-hover:block">
-            <a href="https://wa.me/?text=Check out this link: <%= @full_url %>" target="_blank"
+            <a href="https://wa.me/?text=Check out this link: <%= full_short_url(@url) %>" target="_blank"
               class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
               <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
-            <a href="https://twitter.com/intent/tweet?url=<%= @full_url %>" target="_blank"
+            <a href="https://twitter.com/intent/tweet?url=<%= full_short_url(@url) %>" target="_blank"
               class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
               <i class="fab fa-twitter"></i> Twitter
             </a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= @full_url %>" target="_blank"
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= full_short_url(@url) %>" target="_blank"
               class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
               <i class="fab fa-facebook"></i> Facebook
             </a>
-            <a href="mailto:?subject=Check out this link&body=Here is the link: <%= @full_url %>"
+            <a href="mailto:?subject=Check out this link&body=Here is the link: <%= full_short_url(@url) %>"
               class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
               <i class="fas fa-envelope"></i> Email
             </a>

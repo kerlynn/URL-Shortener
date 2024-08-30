@@ -1,5 +1,5 @@
 module UrlsHelper
-  def full_short_url(visit)
-    request.base_url + '/urls/' + visit.url.short_url
+  def full_short_url(url)
+    request.base_url + '/urls/' + url.short_url
   end
 end

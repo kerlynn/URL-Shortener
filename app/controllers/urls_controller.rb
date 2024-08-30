@@ -9,7 +9,6 @@ class UrlsController < ApplicationController
     @url = Url.new(target_url: url_params[:target_url])
 
     if @url.save
-      @full_url = request.base_url + '/urls/' + @url.short_url
       flash.now[:notice] = 'URL successfully created!'
     else
       @error_message = @url.errors.full_messages.join(', ')

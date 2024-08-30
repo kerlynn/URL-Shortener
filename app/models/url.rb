@@ -11,7 +11,7 @@ class Url < ApplicationRecord
   def increment_clicks_count!
     increment!(:clicks_count)
   end
-
+ 
   private
 
   def prepend_http_if_missing
