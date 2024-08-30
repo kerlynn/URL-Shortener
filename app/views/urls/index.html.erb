@@ -19,12 +19,21 @@
     </div>
 
     <% if @url.persisted? %>
-    <div class="text-left w-full">
+    <div class="text-left w-full mb-4">
       <label class="block text-gray-600 font-bold mb-2" for="short-url">
         <i class="fas fa-pencil-alt"></i> Short URL
       </label>
       <input id="short-url" type="text" value="<%= @full_url %>" readonly
         class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" />
+    </div>
+
+    <div class="text-left w-full">
+      <label class="block text-gray-600 font-bold mb-2" for="title">
+        <i class="fas fa-tag"></i> Title
+      </label>
+      <textarea id="title" readonly
+        class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 h-24 resize-none"
+        title="<%= @url.title %>"><%= @url.title %></textarea>
     </div>
     <% end %>
 

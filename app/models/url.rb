@@ -6,7 +6,7 @@ class Url < ApplicationRecord
   validates :target_url, presence: true
   validates :short_url, uniqueness: true, length: { maximum: 15 }
 
-  before_create :set_short_url
+  before_create :set_title_and_short_url
 
   def increment_clicks_count!
     increment!(:clicks_count)
@@ -20,7 +20,8 @@ class Url < ApplicationRecord
     self.target_url = "http://#{target_url}" unless target_url.match?(%r{\Ahttp://|https://})
   end
 
-  def set_short_url
+  def set_title_and_short_url
+    self.title = FetchTitleService.new(target_url).call
     UrlShortenerService.new(self).call
   end
 end
