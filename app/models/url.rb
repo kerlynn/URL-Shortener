@@ -21,6 +21,6 @@ class Url < ApplicationRecord
   end
 
   def set_short_url
-    UrlShortenerService.new(self).generate_short_url
+    UrlShortenerService.new(self).call
   end
 end
