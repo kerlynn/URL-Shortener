@@ -43,6 +43,8 @@ gem "msgpack", ">= 1.7.0"
 
 gem "tailwindcss-rails", "~> 2.2.1"
 
+gem "font-awesome-sass"
+
 # env vars
 gem 'dotenv-rails', '~> 2.8.1'
 

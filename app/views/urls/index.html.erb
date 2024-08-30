@@ -33,10 +33,40 @@
       <%= form.submit "Shorten URL", class: "px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600 focus:outline-none" %>
       <% end %>
       <% if @url.persisted? %>
-      <button type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none"
-        onclick="copyToClipboard('#short-url')">
-        <i class="fas fa-copy"></i> Copy
-      </button>
+      <div class="flex space-x-2 mb-4">
+        <button type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none"
+          onclick="copyToClipboard('#short-url')">
+          <i class="fas fa-copy"></i> Copy
+        </button>
+
+        <!-- Share Button with Dropdown -->
+        <div class="relative">
+          <button type="button"
+            class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none">
+            <i class="fas fa-share-alt"></i> Share
+          </button>
+          <div
+            class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10 hidden group-hover:block">
+            <a href="https://wa.me/?text=Check out this link: <%= @full_url %>" target="_blank"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=<%= @full_url %>" target="_blank"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+              <i class="fab fa-twitter"></i> Twitter
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= @full_url %>" target="_blank"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+            <a href="mailto:?subject=Check out this link&body=Here is the link: <%= @full_url %>"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+          </div>
+        </div>
+      </div>
+
       <% end %>
     </div>
 
@@ -49,10 +79,18 @@
 </div>
 
 <script>
+  // Copy
   function copyToClipboard(element) {
     var copyText = document.querySelector(element);
     copyText.select();
     document.execCommand("copy");
     alert("Copied the URL: " + copyText.value);
   }
+  // Social Share
+  document.querySelectorAll('.relative button').forEach(button => {
+    button.addEventListener('click', function() {
+      const dropdown = this.nextElementSibling;
+      dropdown.classList.toggle('hidden');
+    });
+  });
 </script>
