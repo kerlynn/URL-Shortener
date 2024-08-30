@@ -10,10 +10,12 @@ class UrlsController < ApplicationController
 
     if @url.save
       @full_url = request.base_url + '/urls/' + @url.short_url
-      render :index
+      flash.now[:notice] = 'URL successfully created!'
     else
-      render :index
+      @error_message = @url.errors.full_messages.join(', ')
     end
+
+    render :index
   end
 
   def show
@@ -32,7 +34,6 @@ class UrlsController < ApplicationController
   end
 
   def track_visit
-    # binding.pry
     @url.increment_clicks_count!
     @url.visits.create(ip_address: request&.remote_ip, geolocation: nil, timestamp: Time.current)
   end

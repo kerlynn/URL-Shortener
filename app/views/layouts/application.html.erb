@@ -10,15 +10,43 @@
   <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
   <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
   <%= stylesheet_link_tag "inter-font", "data-turbo-track": "reload" %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
   <!-- Load JavaScript files -->
   <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </head>
 
 <body>
   <main class="container mx-auto mt-20 mb-2 px-5 flex">
     <%= yield %>
   </main>
+
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "positionClass": "toast-top-left", 
+        "preventDuplicates": false,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+      };
+
+      <% if @error_message %>
+        toastr.error('<%= j @error_message %>', 'Error');
+      <% elsif flash[:notice] %>
+        toastr.success('<%= j flash[:notice] %>', 'Success');
+      <% end %>
+    });
+  </script>
 </body>
 
 </html>
