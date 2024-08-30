@@ -88,9 +88,17 @@
   }
   // Social Share
   document.querySelectorAll('.relative button').forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function(event) {
+      event.stopPropagation();
       const dropdown = this.nextElementSibling;
       dropdown.classList.toggle('hidden');
+    });
+  });
+  document.addEventListener('click', function(event) {
+    document.querySelectorAll('.relative > div').forEach(dropdown => {
+      if (!dropdown.classList.contains('hidden') && !dropdown.contains(event.target)) {
+        dropdown.classList.add('hidden');
+      }
     });
   });
 </script>
