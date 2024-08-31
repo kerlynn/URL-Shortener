@@ -11,7 +11,7 @@ class UrlsController < ApplicationController
     if @url.save
       flash.now[:notice] = 'URL successfully created!'
     else
-      @error_message = @url.errors.full_messages.join(', ')
+      flash.now[:alert] = @url.errors.full_messages.join(', ')
     end
 
     render :index

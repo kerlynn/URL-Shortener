@@ -40,8 +40,8 @@
         "hideMethod": "fadeOut"
       };
 
-      <% if @error_message %>
-        toastr.error('<%= j @error_message %>', 'Error');
+      <% if flash[:alert] %>
+        toastr.error('<%= j flash[:alert] %>', 'Error');
       <% elsif flash[:notice] %>
         toastr.success('<%= j flash[:notice] %>', 'Success');
       <% end %>
