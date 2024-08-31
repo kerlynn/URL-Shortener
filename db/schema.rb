@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_23_163737) do
     t.string "target_url"
     t.string "short_url"
     t.string "title"
-    t.integer "clicks_count"
+    t.integer "clicks_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
