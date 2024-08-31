@@ -34,6 +34,6 @@ class UrlsController < ApplicationController
 
   def track_visit
     @url.increment_clicks_count!
-    @url.visits.create(ip_address: request&.remote_ip, geolocation: nil, timestamp: Time.current)
+    @url.visits.create(ip_address: request&.remote_ip, timestamp: Time.current)
   end
 end
