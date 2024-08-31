@@ -11,7 +11,7 @@ class Url < ApplicationRecord
   def increment_clicks_count!
     increment!(:clicks_count)
   end
- 
+
   private
 
   def prepend_http_if_missing
@@ -22,6 +22,6 @@ class Url < ApplicationRecord
 
   def set_title_and_short_url
     self.title = FetchTitleService.new(target_url).call
-    UrlShortenerService.new(self).call
+    self.short_url = UrlShortenerService.new(self).call
   end
 end
