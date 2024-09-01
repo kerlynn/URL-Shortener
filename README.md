@@ -36,38 +36,66 @@ Before you begin, ensure you have the following installed:
 - Ruby (version 3.2.2)
 - Rails (version 7.1.2)
 - Node.js (version 10.x or higher)
+  
 
 ### Steps to Install
 
 1. **Clone the Repository**
+   
    ```bash
    git clone https://github.com/kerlynn/URL-Shortener.git
    cd url-shortener
 
 2. **Install Ruby Gems**
+   
    ```bash
    bundle install
 
 3. **Setup Database**
-   ```bash
-   rails db:create
-   rails db:migrate
+
+   This project uses PostgreSQL as the database. Below are the instructions for setting up PostgreSQL and configuring the application to use it.
+      
+      I. Ensure that PostgreSQL is installed on your system. You can install it using the following methods:
+   
+      - **macOS**: Using Homebrew
+        
+        ```bash
+        brew install postgresql
+        brew services start postgresql
+   
+      II. Configure config/database.yml file to use PostgreSQL.
+   
+      III. Create Database
+   
+         rails db:create
+   
+      IV. Run Migrations
+      
+         rails db:migrate
+
 
 4. **Precompile Assets**
+   
    ```bash
    rake assets:precompile
 
 5. **Start the Rails Server**
+   
    ```bash
    rails server
 
 The application will be available at http://localhost:10000.
 
+
 ## Testing with RSpec
 
 1. **To run all the tests in the project**
-  ```bash
+   
+   ```bash
    bundle exec rspec
+
+This command will execute all the specs in the spec/ directory.
+
 
 ## Dependencies
 
