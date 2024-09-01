@@ -57,12 +57,17 @@ Before you begin, ensure you have the following installed:
    ```bash
    rake assets:precompile
 
-4. **Start the Rails Server**
+5. **Start the Rails Server**
    ```bash
    rails server
 
 The application will be available at http://localhost:10000.
 
+## Testing with RSpec
+
+1. **To run all the tests in the project**
+  ```bash
+   bundle exec rspec
 
 ## Dependencies
 
