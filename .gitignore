@@ -24,3 +24,4 @@
 /public/uploads
 
 node_modules/
+/config/credentials/production.key
