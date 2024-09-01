@@ -2,6 +2,32 @@
 
 A simple URL shortener service that allows you to shorten long URLs and track click metrics.
 
+
+<img width="1308" alt="Screenshot 2024-09-01 at 6 36 22 PM" src="https://github.com/user-attachments/assets/e43a6136-4cd5-42ae-904c-e43ecfb3fccb">
+
+
+
+## Usage Report
+
+The usage report for the URL Shortener application focuses on URLs that have been interacted with. This report includes:
+
+- **Short URL**: The shortened version of the URL.
+- **Target URL**: The original URL that was shortened.
+- **Title**: The title of the target URL (if available).
+- **Number of Clicks**: The count of how many times the short URL has been visited.
+
+### Details
+
+- **Relevance**: The report only includes URLs that have been visited. This approach ensures that the report is focused and provides actionable insights into which URLs are performing well.
+- **Clarity**: By excluding URLs without visits, the report avoids clutter and makes it easier to interpret the data.
+
+<img width="978" alt="Screenshot 2024-09-01 at 6 32 39 PM" src="https://github.com/user-attachments/assets/072c3a85-0357-4472-834f-c91893cad0f8">
+
+##  Short URL Creation and Usage Reporting Workflow
+<img width="450" alt="Short URL Creation and Usage Reporting Workflow" src="https://github.com/user-attachments/assets/f538e2d2-52b6-4ea4-bded-c385dba87f07">
+
+
+
 ## Installation Guide
 
 ### Prerequisites
