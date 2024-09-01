@@ -37,7 +37,6 @@ Before you begin, ensure you have the following installed:
    ```bash
    rails server
 
-
 The application will be available at http://localhost:10000.
 
 
@@ -96,6 +95,6 @@ This project uses the following Ruby gems:
 
 ## Deployed Application URL
 
-The deployed application can be accessed at: [https://https://url-shortener-6q15.onrender.com/](https://https://url-shortener-6q15.onrender.com/)
+The deployed application can be accessed at: [https://url-shortener-6q15.onrender.com/](https://https://url-shortener-6q15.onrender.com/)
 
 Thank you.
