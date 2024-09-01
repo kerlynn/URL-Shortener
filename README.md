@@ -53,8 +53,6 @@ Before you begin, ensure you have the following installed:
    rails db:create
    rails db:migrate
 
-   Precompile Assets
-
 4. **Precompile Assets**
    ```bash
    rake assets:precompile
