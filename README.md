@@ -15,6 +15,9 @@ The usage report for the URL Shortener application focuses on URLs that have bee
 - **Target URL**: The original URL that was shortened.
 - **Title**: The title of the target URL (if available).
 - **Number of Clicks**: The count of how many times the short URL has been visited.
+- **IP Address**: The visitor's IP address.
+- **Geolocation**: The visitor's geolocation (if available).
+- **Timestamp**: The time of the visit.
 
 ### Details
 
