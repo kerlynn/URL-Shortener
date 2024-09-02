@@ -26,3 +26,4 @@ production:
   database: url_shortener_production
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
+  prepared_statements: false
