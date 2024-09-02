@@ -1,6 +1,6 @@
 # URL Shortener
 
-A simple URL shortener service that allows you to shorten long URLs and track click metrics.
+A simple URL shortener service that allows you to shorten long URLs with a simple usage report.
 
 
 <img width="1308" alt="Screenshot 2024-09-01 at 6 36 22 PM" src="https://github.com/user-attachments/assets/e43a6136-4cd5-42ae-904c-e43ecfb3fccb">
