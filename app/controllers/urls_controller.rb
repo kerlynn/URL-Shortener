@@ -18,6 +18,12 @@ class UrlsController < ApplicationController
   end
 
   def show
+    if @url.nil?
+      @url ||= Url.new
+      flash[:alert] = 'URL not found.'
+      return redirect_to root_path
+    end
+
     track_visit
     redirect_to @url.target_url, allow_other_host: true
   end

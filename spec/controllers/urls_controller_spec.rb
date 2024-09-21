@@ -57,15 +57,35 @@ RSpec.describe UrlsController, type: :controller do
       allow(request).to receive(:remote_ip).and_return('8.8.8.8')
     end
 
-    it 'redirects to the target URL' do
-      get :show, params: { id: url.short_url }
-      expect(response).to redirect_to(url.target_url)
+    context 'when the URL exists' do
+      it 'redirects to the target URL' do
+        get :show, params: { id: url.short_url }
+        expect(response).to redirect_to(url.target_url)
+      end
+
+      it 'tracks the visit' do
+        expect do
+          get :show, params: { id: url.short_url }
+        end.to change(url.visits, :count).by(1)
+      end
+
+      it 'increments the click count' do
+        expect do
+          get :show, params: { id: url.short_url }
+        end.to change { url.reload.clicks_count }.by(1)
+      end
     end
 
-    it 'tracks the visit' do
-      expect do
-        get :show, params: { id: url.short_url }
-      end.to change(url.visits, :count).by(1)
+    context 'when the URL does not exist' do
+      it 'redirects to the root path with an alert message' do
+        # Ensure no visit is created
+        expect do
+          get :show, params: { id: 'nonexistent-url' }
+        end.not_to change { Visit.count }
+
+        expect(flash[:alert]).to eq('URL not found.')
+        expect(response).to redirect_to(root_path)
+      end
     end
   end
 end
